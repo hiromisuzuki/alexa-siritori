@@ -10,7 +10,7 @@ const APP_ID = undefined;
 const GAME_NAME = "しりとりスキル";
 const START_MESSAGE = "しりとりスキルへようこそ。" +
     "ゲームを始めるには、まず、「しりとり」と言ってみてください。";
-const UNHANDLED = "聞き取れませんでした。もう一度言ってください。";
+const UNHANDLED = "ちょっと何言ってるかわからない。";
 const HELP_MESSAGE = "しりとりを続けますか？" +
     "続ける場合は「はい」、やめる場合は「いいえ」、と言ってください。";
 const CANCEL_MESSAGE = "しりとりを終了します。";
@@ -235,7 +235,10 @@ const helpStateHandlers = Alexa.CreateStateHandler(GAME_STATES.HELP, {
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
-    alexa.registerHandlers(newSessionHandlers, startStateHandlers,
-        siritoriStateHandlers, helpStateHandlers);
+    alexa.registerHandlers(
+        newSessionHandlers, 
+        startStateHandlers,
+        siritoriStateHandlers, 
+        helpStateHandlers);
     alexa.execute();
 };
